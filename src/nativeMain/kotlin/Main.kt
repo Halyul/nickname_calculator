@@ -32,7 +32,7 @@ fun enterNickname():String {
 
 fun enterSeed(): Long {
     var seed = ""
-    var number: Long
+    var number = 0L
     println("Enter a seed:")
     while (true) {
         seed = readln()
@@ -44,11 +44,9 @@ fun enterSeed(): Long {
             number = seed.toLong()
         } catch (e: NumberFormatException) {
             val seedByteArray = seed.encodeToByteArray()
-            var seedByteString = ""
             seedByteArray.forEach {
-                seedByteString += it.toString()
+                number += it.toLong()
             }
-            number = seedByteString.toLong()
         }
         return number
     }
